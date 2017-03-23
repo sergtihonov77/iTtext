@@ -1,0 +1,106 @@
+﻿@model iText.Models.Columns
+
+
+<div class="container">
+
+
+
+    <div class="row">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+
+            <div class="form-horizontal col-md-6 col-md-offset-3">
+                <div class="row">
+                    <h2 class="col-md-6 col-md-offset-3">Columns PDF</h2>
+                </div>
+                <div class="row">
+                    @if (ViewBag.Message != null)
+                    {
+                        <div class="col-md-10 altx">
+                            <h4 class="alert alert-success" role="alert" id="success">@ViewBag.Message</h4>
+                            <h3><a href="~/Data/data.pdf">Pdf File</a></h3>
+                        </div>
+                    }
+                </div>
+
+                <div class="row">
+                    <div class="col-md-10 altx">
+                        <h4 class="alert alert-info" role="alert">Input your data please</h4>
+                    </div>
+                </div>
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.ColumnWidth_1, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-8 col-md-offset-1">
+                        @Html.EditorFor(model => model.ColumnWidth_1, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ColumnWidth_1, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.ColumnWidth_2, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-8 col-md-offset-1">
+                        @Html.EditorFor(model => model.ColumnWidth_2, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ColumnWidth_2, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.ColumnWidth_3, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-8 col-md-offset-1">
+                        @Html.EditorFor(model => model.ColumnWidth_3, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ColumnWidth_3, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.ColumnText_1, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-8 col-md-offset-1">
+                        @Html.EditorFor(model => model.ColumnText_1, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ColumnText_1, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.ColumnText_2, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-8 col-md-offset-1">
+                        @Html.EditorFor(model => model.ColumnText_2, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ColumnText_2, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.ColumnText_3, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-8 col-md-offset-1">
+                        @Html.EditorFor(model => model.ColumnText_3, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ColumnText_3, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-offset-4 col-md-4">
+                        <input type="submit" value="Download" class="btn btn-success" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+
+@section Scripts {
+
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquery")
+    <script>
+        $(document).ready(function () {
+
+            if ($('#error')) { setTimeout("$('#success').remove();", 3000); }
+
+        });
+    </script>
+}
